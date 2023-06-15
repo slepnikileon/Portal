@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<h1>Войдите в систему</h1>
+<a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{% url 'login' %}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Вход</font></font></a>
+{% endblock %}

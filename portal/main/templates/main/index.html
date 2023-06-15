@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<h1>Home</h1>
+
+<form class="row g-3" action="{% url 'search' %}" method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="КМКОЦ" aria-label="Recipient's username" aria-describedby="button-addon2" name="q">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+      </div>
+  </form>
+
+  {% if user.is_authenticated %}
+  <li>User: {{ user.get_username }}</li>
+  <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+{% else %}
+  <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+{% endif %}
+
+<!--
+<form action="{% url 'search' %}" method="get">
+    <input type="text" name="q">
+    <button type="submit">OK</button>
+  </form>
+-->
+{% endblock %}
